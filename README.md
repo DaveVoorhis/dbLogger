@@ -3,10 +3,10 @@
 dbLogger is a simple logging layer that logs to a SQL database rather
 than the usual text-based log files.
 
-If you haven't used SQL database logs, you don't know what 
+If you haven't used logs in a SQL database, you don't know what 
 you've been missing!
 
-SQL database logs can be filtered, queried, summarised,
+Logs in a SQL database can be filtered, queried, summarised,
 and analysed _much_ faster and easier than text-file logs.
 
 By default, dbLogger is designed to log to SQLite databases. 
