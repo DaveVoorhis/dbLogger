@@ -10,19 +10,18 @@ import org.reldb.dbLogger.SQLiteDatabase;
 import org.reldb.dbLogger.tools.Logger;
 
 class SQLiteDatabaseTest {
+
     @Test void testLogBasic() {
         try (var db = new SQLiteDatabase("./testdb.sqlite")) {
             var log = new Log(db.getConnection(), "testlog");
             for (int i = 0; i < 10; i++) {
-                Logger.log()
-                        .log("a", i)
+                Logger.log("a", i)
                         .log("b", "" + i)
                         .log("c", "blah")
                         .insert(log);
             }
             for (int i = 11; i < 20; i++) {
-                Logger.log()
-                        .log("a", i)
+                Logger.log("a", i)
                         .log("b", "" + i)
                         .log("c", "blah")
                         .log("d", (float) i)
@@ -30,4 +29,5 @@ class SQLiteDatabaseTest {
             }
         }
     }
+
 }
