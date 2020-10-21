@@ -1,11 +1,9 @@
 package org.reldb.dbLogger;
 
-import java.util.HashMap;
-
 /**
  * Start of an ergonomic chain of Log.log(...).log(...).log(...).insert(logdb) invocations.
  */
-public class Log extends HashMap<Object, Object> {
+public class Log {
 
     /**
      * Obtain a LogChain instance and invoke its log() method with attribute and value.
@@ -15,8 +13,6 @@ public class Log extends HashMap<Object, Object> {
      * @return - A new LogChain instance
      */
     public static LogChain log(String attribute, Object value) {
-        LogChain log = new LogChain();
-        log.log(attribute, value);
-        return log;
+        return new LogChain().log(attribute, value);
     }
 }
