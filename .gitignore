@@ -9,3 +9,8 @@ build
 
 # Ignore test database
 testdb.sqlite
+
+# Ignore Gradle wrapper
+/gradle/
+gradlew
+gradlew.bat
