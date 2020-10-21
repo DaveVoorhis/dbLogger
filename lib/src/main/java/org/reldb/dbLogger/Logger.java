@@ -1,4 +1,4 @@
-package org.reldb.dbLogger.tools;
+package org.reldb.dbLogger;
 
 import java.util.HashMap;
 

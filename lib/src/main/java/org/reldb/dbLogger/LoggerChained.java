@@ -1,6 +1,5 @@
-package org.reldb.dbLogger.tools;
+package org.reldb.dbLogger;
 
-import org.reldb.dbLogger.Log;
 import java.util.HashMap;
 
 /**

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import org.reldb.dbLogger.Log;
 import org.reldb.dbLogger.SQLiteDatabase;
-import org.reldb.dbLogger.tools.Logger;
+import org.reldb.dbLogger.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
