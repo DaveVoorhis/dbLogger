@@ -39,7 +39,7 @@ var logger = new Log(db.getConnection(), "mylog1");
 Log.log("column_a", 3)
    .log("column_b", 4.3)
    .log("column_c", "blah")
-   .log("column_d", )
+   .log("column_d", 33)
    .insert(logger);
 ```
 
