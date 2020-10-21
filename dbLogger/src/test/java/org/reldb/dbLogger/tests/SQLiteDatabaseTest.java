@@ -10,9 +10,10 @@ import org.reldb.dbLogger.Log;
 import org.reldb.dbLogger.SQLiteDatabase;
 import org.reldb.dbLogger.Logger;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,12 +23,12 @@ class SQLiteDatabaseTest {
     private static final String LOGDBFILENAME = "./testdb.sqlite";
 
     @BeforeAll static void startup() throws IOException {
-        Files.deleteIfExists(Path.of(LOGDBFILENAME));
+        Files.deleteIfExists(Paths.get(LOGDBFILENAME));
     }
 
     @Test void testLogBasic() throws SQLException {
-        try (var db = new SQLiteDatabase(LOGDBFILENAME)) {
-            try (var log = new Log(db.getConnection(), "testlog")) {
+        try (SQLiteDatabase db = new SQLiteDatabase(LOGDBFILENAME)) {
+            try (Log log = new Log(db.getConnection(), "testlog")) {
                 for (int i = 0; i < 10; i++) {
                     Logger.log("a", i)
                             .log("b", "" + i)
@@ -46,8 +47,8 @@ class SQLiteDatabaseTest {
     }
 
     @Test void testLogNested() throws SQLException {
-        try (var db = new SQLiteDatabase(LOGDBFILENAME)) {
-            try (var log = new Log(db.getConnection(), "testlognested")) {
+        try (SQLiteDatabase db = new SQLiteDatabase(LOGDBFILENAME)) {
+            try (Log log = new Log(db.getConnection(), "testlognested")) {
                 for (int i = 0; i < 10; i++) {
                     Logger.log("a", i)
                             .log("b", "" + i)
@@ -62,8 +63,8 @@ class SQLiteDatabaseTest {
     }
 
     @Test void testLogList() throws SQLException {
-        try (var db = new SQLiteDatabase(LOGDBFILENAME)) {
-            try (var log = new Log(db.getConnection(), "testloglist")) {
+        try (SQLiteDatabase db = new SQLiteDatabase(LOGDBFILENAME)) {
+            try (Log log = new Log(db.getConnection(), "testloglist")) {
                 for (int i = 0; i < 10; i++) {
                     List<Object> testlist = new LinkedList<>();
                     testlist.add(3);
