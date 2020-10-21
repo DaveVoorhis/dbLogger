@@ -15,7 +15,7 @@ like DB Browser. See https://sqlitebrowser.org.
 
 ## Use
 
-*Import dbLogger*
+*Import dbLogger.*
 
 ```
 import org.reldb.dbLogger.*;
@@ -52,4 +52,4 @@ db.close();
 
 Then open _mylogs.sqlite_ with your favourite SQLite database browser to examine and query your logs.
 
-See SQLiteDatabaseTest.java under lib/test/java/org/reldb/dbLogger/tests for more examples.
+See _SQLiteDatabaseTest.java_ under _lib/test/java/org/reldb/dbLogger/tests_ for more examples.
