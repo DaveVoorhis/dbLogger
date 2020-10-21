@@ -15,16 +15,22 @@ like DB Browser. See https://sqlitebrowser.org.
 
 ## Use
 
+*Import dbLogger*
+
+```
+import org.reldb.dbLogger.*;
+```
+
 *Create or open a log database, which can contain multiple log tables.*
 
 ```
-var db = new SQLiteDatabase("mylogs.sqlite")
+var db = new SQLiteDatabase("mylogs.sqlite");
 ```
 
 *Create or open a log table.*
 
 ```
-var log = new Log(db.getConnection(), "mylog1")
+var log = new Log(db.getConnection(), "mylog1");
 ```
 
 *Write an entry to a log table.*
@@ -34,7 +40,7 @@ Logger.log("column_a", 3)
       .log("column_b", 4.3)
       .log("column_c", "blah")
       .log("column_d", )
-      .insert(log)
+      .insert(log);
 ```
 
 *Close everything when done.*
