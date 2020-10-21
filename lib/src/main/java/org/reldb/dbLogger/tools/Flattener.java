@@ -75,41 +75,6 @@ public class Flattener {
 	public static void flatten(Map<?, ?> source, Map<String, Object> target, AttributeValuePredicate predicate) {
 		flatten("", source, target, predicate);
 	}
-	
-	/**
-	 * Flatten a Map -- which may contain ListS, MapS, or scalar values -- to the target Map.
-	 * 
-	 * @param source - The Map to be flattened
-	 * @param target - The Map to receive the flattened attributes
-	 */
-	public static void flatten(Map<?, ?> source, Map<String, Object> target) {
-		flatten(source, target, null);
-	}
-
-	/**
-	 * Flatten a Map named containerName -- which may contain ListS, MapS, or scalar values -- to a target Map.
-	 *
-	 * @param containerName - The name of the source Map as an attribute in its parent Map. Used to construct new attribute names.
-	 * @param source - The Map to be flattened
-	 * @return - A flattened Map
-	 */
-	public static Map<String, Object> flatten(String containerName, Map<?, ?> source) {
-		Map<String, Object> target = new HashMap<>();
-		flatten(containerName, source, target);
-		return target;
-	}
-
-	/**
-	 * Flatten a Map -- which may contain ListS, MapS, or scalar values -- to a target Map, but only where predicate is true.
-	 *
-	 * @param source - The Map to be flattened
-	 * @param predicate - If false, exclude this attribute. If null, assume true.
-	 */
-	public static Map<String, Object> flatten(Map<?, ?> source, AttributeValuePredicate predicate) {
-		Map<String, Object> target = new HashMap<>();
-		flatten("", source, target, predicate);
-		return target;
-	}
 
 	/**
 	 * Flatten a Map -- which may contain ListS, MapS, or scalar values -- to a target Map.
