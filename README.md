@@ -68,11 +68,11 @@ To get it via Maven, use:
 <dependency>
   <groupId>org.reldb</groupId>
   <artifactId>dbLogger</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
 </dependency>
 ```
 To get it via Gradle, use:
 ```
-compile 'org.reldb:dbLogger:0.0.1-SNAPSHOT'
+compile 'org.reldb:dbLogger:0.0.2-SNAPSHOT'
 ```
 The version can be found in _build.gradle_.
