@@ -30,23 +30,23 @@ var db = new SQLiteDatabase("mylogs.sqlite");
 *Create or open a log table.*
 
 ```
-var log = new Log(db.getConnection(), "mylog1");
+var logger = new Log(db.getConnection(), "mylog1");
 ```
 
 *Write an entry to a log table.*
 
 ```
-Logger.log("column_a", 3)
-      .log("column_b", 4.3)
-      .log("column_c", "blah")
-      .log("column_d", )
-      .insert(log);
+Log.log("column_a", 3)
+   .log("column_b", 4.3)
+   .log("column_c", "blah")
+   .log("column_d", )
+   .insert(logger);
 ```
 
 *Close everything when done.*
 
 ```
-log.close();
+logger.close();
 db.close();
 ```
 

@@ -6,11 +6,10 @@ package org.reldb.dbLogger.tests;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import org.reldb.dbLogger.Log;
-import org.reldb.dbLogger.SQLiteDatabase;
 import org.reldb.dbLogger.Logger;
+import org.reldb.dbLogger.SQLiteDatabase;
+import org.reldb.dbLogger.Log;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -28,19 +27,22 @@ class SQLiteDatabaseTest {
 
     @Test void testLogBasic() throws SQLException {
         try (SQLiteDatabase db = new SQLiteDatabase(LOGDBFILENAME)) {
-            try (Log log = new Log(db.getConnection(), "testlog")) {
+            try (Logger logger = new Logger(db.getConnection(), "testlog")) {
                 for (int i = 0; i < 10; i++) {
-                    Logger.log("a", i)
-                            .log("b", "" + i)
-                            .log("c", "blah")
-                            .insert(log);
+                    Log.log("a", i)
+                        .log("b", "" + i)
+                        .log("c", "blah")
+                        .insert(logger);
                 }
                 for (int i = 11; i < 20; i++) {
-                    Logger.log("a", i)
-                            .log("b", "" + i)
-                            .log("c", "blah")
-                            .log("d", (float) i)
-                            .insert(log);
+                    Log.log("a", i)
+                        .log("b", "" + i)
+                        .log("c", "blah")
+                        .log("d", (float) i)
+                        .insert(logger);
+                }
+                for (int i = 21; i < 30; i++) {
+                    Log.log("a", i).insert(logger);
                 }
             }
         }
@@ -48,15 +50,15 @@ class SQLiteDatabaseTest {
 
     @Test void testLogNested() throws SQLException {
         try (SQLiteDatabase db = new SQLiteDatabase(LOGDBFILENAME)) {
-            try (Log log = new Log(db.getConnection(), "testlognested")) {
+            try (Logger logger = new Logger(db.getConnection(), "testlognested")) {
                 for (int i = 0; i < 10; i++) {
-                    Logger.log("a", i)
-                            .log("b", "" + i)
-                            .log("c", "blah")
-                            .log("n", Logger.log("p", i * 10)
-                                    .log("q", (double) (i * 20))
-                                    .log("a", i + 100))
-                            .insert(log);
+                    Log.log("a", i)
+                        .log("b", "" + i)
+                        .log("c", "blah")
+                        .log("n", Log.log("p", i * 10)
+                            .log("q", (double) (i * 20))
+                            .log("a", i + 100))
+                        .insert(logger);
                 }
             }
         }
@@ -64,19 +66,19 @@ class SQLiteDatabaseTest {
 
     @Test void testLogList() throws SQLException {
         try (SQLiteDatabase db = new SQLiteDatabase(LOGDBFILENAME)) {
-            try (Log log = new Log(db.getConnection(), "testloglist")) {
+            try (Logger logger = new Logger(db.getConnection(), "testloglist")) {
                 for (int i = 0; i < 10; i++) {
                     List<Object> testlist = new LinkedList<>();
                     testlist.add(3);
                     testlist.add(5.2);
                     testlist.add("7");
-                    Logger.log("a", i)
-                            .log("b", "" + i)
-                            .log("c", testlist)
-                            .log("n", Logger.log("p", i * 10)
-                                    .log("q", testlist)
-                                    .log("a", i + 100))
-                            .insert(log);
+                    Log.log("a", i)
+                        .log("b", "" + i)
+                        .log("c", testlist)
+                        .log("n", Log.log("p", i * 10)
+                            .log("q", testlist)
+                            .log("a", i + 100))
+                        .insert(logger);
                 }
             }
         }
