@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * A standard JDBC connection to a JDBC database.
  */
 public class Database implements Closeable {
-	private Connection conn = null;
+	private Connection conn;
 
 	/**
 	 * Return a string with SQL-breaking characters translated to '_'.
@@ -26,12 +26,8 @@ public class Database implements Closeable {
 	 * 
 	 * @param dbURL - full JDBC database URL.
 	 */
-	public Database(final String dbURL) {
-		try {
-			conn = DriverManager.getConnection(dbURL);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public Database(final String dbURL) throws SQLException {
+		conn = DriverManager.getConnection(dbURL);
 	}
 
 	/**
