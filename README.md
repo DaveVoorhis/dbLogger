@@ -52,4 +52,4 @@ db.close();
 
 Then open _mylogs.sqlite_ with your favourite SQLite database browser to examine and query your logs.
 
-See _SQLiteDatabaseTest.java_ under _lib/test/java/org/reldb/dbLogger/tests_ for more examples.
+See _SQLiteDatabaseTest.java_ under _lib/src/test/java/org/reldb/dbLogger/tests_ for more examples.
