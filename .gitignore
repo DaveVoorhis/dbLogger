@@ -8,4 +8,4 @@
 build
 
 # Ignore test database
-/dbLogger/testdb.sqlite
+testdb.sqlite
