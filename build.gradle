@@ -39,3 +39,7 @@ publishing {
         mavenLocal()
     }
 }
+
+clean {
+    delete 'testdb.sqlite'
+}
