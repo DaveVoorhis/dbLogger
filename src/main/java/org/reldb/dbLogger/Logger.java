@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.Vector;
 
 /**
- * A ger provides facilities to log data to a SQL database table.
+ * A Logger provides facilities to log data to a SQL database table.
  */
 public class Logger implements Closeable {
 	private final Connection database;
@@ -119,8 +119,6 @@ public class Logger implements Closeable {
 	 * @param fullRecord - Map<String, Object> representing a record of data we wish to log
 	 */
 	public void insert(Map<String, Object> fullRecord) {
-		// This could almost certainly be more efficient, but be careful to ensure
-		// column order is preserved in any optimisation.
 		try {
 			Set<Entry<String, Object>> entries = fullRecord.entrySet();
 			Vector<Object> values = new Vector<>();
