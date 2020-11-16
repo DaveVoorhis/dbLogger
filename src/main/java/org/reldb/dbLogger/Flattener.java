@@ -6,15 +6,10 @@ import java.util.Map;
 
 /**
  * Copy a hierarchy of Map, List, and scalar value containment -- e.g., an instance/container-instance 
- * hierarchy representing a JSON object, HTML DOM, etc. -- to a flat Map.
+ * hierarchy of nested containers, such as a JSON object, HTML DOM, etc. -- to a flat Map.
  */
 public class Flattener {
 
-	@FunctionalInterface
-	interface AttributeValuePredicate {
-		boolean isTrue(Object name, Object value);
-	}
-	
 	/**
 	 * Flatten a datum named attributeName which may be a List, Map, or some scalar value to the target Map.
 	 * 
@@ -38,23 +33,6 @@ public class Flattener {
 	}
 	
 	/**
-	 * Flatten a Map named containerName -- which may contain ListS, MapS, or scalar values -- to the target Map, but only where predicate is true.
-	 * 
-	 * @param containerName - The name of the source Map as an attribute in its parent Map. Used to construct new attribute names.
-	 * @param source - The Map to be flattened
-	 * @param target - The Map to receive the flattened attributes
-	 * @param predicate - If false, exclude this attribute. If null, assume true.
-	 */
-	public static void flatten(String containerName, Map<?, ?> source, Map<String, Object> target, AttributeValuePredicate predicate) {
-		source.forEach((name, value) -> {
-			if (predicate == null || predicate.isTrue(name, value)) {
-				String attributeName = containerName + name.toString();
-				flatten(attributeName, value, target);
-			}
-		});
-	}
-	
-	/**
 	 * Flatten a Map named containerName -- which may contain ListS, MapS, or scalar values -- to the target Map.
 	 * 
 	 * @param containerName - The name of the source Map as an attribute in its parent Map. Used to construct new attribute names.
@@ -62,18 +40,10 @@ public class Flattener {
 	 * @param target - The Map to receive the flattened attributes
 	 */
 	public static void flatten(String containerName, Map<?, ?> source, Map<String, Object> target) {
-		flatten(containerName, source, target, null);
-	}
-
-	/**
-	 * Flatten a Map -- which may contain ListS, MapS, or scalar values -- to the target Map, but only where predicate is true.
-	 * 
-	 * @param source - The Map to be flattened
-	 * @param target - The Map to receive the flattened attributes
-	 * @param predicate - If false, exclude this attribute. If null, assume true.
-	 */
-	public static void flatten(Map<?, ?> source, Map<String, Object> target, AttributeValuePredicate predicate) {
-		flatten("", source, target, predicate);
+		source.forEach((name, value) -> {
+			String attributeName = containerName + name.toString();
+			flatten(attributeName, value, target);
+		});
 	}
 
 	/**
@@ -83,7 +53,7 @@ public class Flattener {
 	 */
 	public static Map<String, Object> flatten(Map<?, ?> source) {
 		Map<String, Object> target = new HashMap<>();
-		flatten(source, target, null);
+		flatten("", source, target);
 		return target;
 	}
 }
