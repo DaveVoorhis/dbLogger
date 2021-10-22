@@ -13,9 +13,9 @@ public class Flattener {
 	/**
 	 * Flatten a datum named attributeName which may be a List, Map, or some scalar value to the target Map.
 	 * 
-	 * @param attributeName - The name of this attribute as its known in its parent container. Used to construct new attribute names.
-	 * @param value - The List, Map to be flattened and stored, or the value to be stored, in the target.
-	 * @param target - The Map to receive the flattened data.
+	 * @param attributeName The name of this attribute as its known in its parent container. Used to construct new attribute names.
+	 * @param value The List, Map to be flattened and stored, or the value to be stored, in the target.
+	 * @param target The Map to receive the flattened data.
 	 */
 	public static void flatten(String attributeName, Object value, Map<String, Object> target) {
 		if (value instanceof List) {
@@ -35,9 +35,9 @@ public class Flattener {
 	/**
 	 * Flatten a Map named containerName -- which may contain ListS, MapS, or scalar values -- to the target Map.
 	 * 
-	 * @param containerName - The name of the source Map as an attribute in its parent Map. Used to construct new attribute names.
-	 * @param source - The Map to be flattened
-	 * @param target - The Map to receive the flattened attributes
+	 * @param containerName The name of the source Map as an attribute in its parent Map. Used to construct new attribute names.
+	 * @param source The Map to be flattened
+	 * @param target The Map to receive the flattened attributes
 	 */
 	public static void flatten(String containerName, Map<?, ?> source, Map<String, Object> target) {
 		source.forEach((name, value) -> {
@@ -49,7 +49,8 @@ public class Flattener {
 	/**
 	 * Flatten a Map -- which may contain ListS, MapS, or scalar values -- to a target Map.
 	 *
-	 * @param source - The Map to be flattened
+	 * @param source The Map to be flattened
+	 * @return The flattened Map.
 	 */
 	public static Map<String, Object> flatten(Map<?, ?> source) {
 		Map<String, Object> target = new HashMap<>();

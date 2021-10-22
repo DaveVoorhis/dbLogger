@@ -14,8 +14,8 @@ public class Database implements Closeable {
 	/**
 	 * Return a string with SQL-breaking characters translated to '_'.
 	 *  
-	 * @param source - A String.
-	 * @return - Cleaned string.
+	 * @param source A String.
+	 * @return Cleaned string.
 	 */
 	public static String cleanSqlIdentifier(String source) {
 		return source.replaceAll("\\P{Alnum}", "_");
@@ -24,7 +24,8 @@ public class Database implements Closeable {
 	/**
 	 * Create a connection to a database.
 	 * 
-	 * @param dbURL - full JDBC database URL.
+	 * @param dbURL full JDBC database URL.
+	 * @throws SQLException error.
 	 */
 	public Database(final String dbURL) throws SQLException {
 		conn = DriverManager.getConnection(dbURL);

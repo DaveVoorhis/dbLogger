@@ -10,9 +10,9 @@ public class LogChain extends HashMap<Object, Object> {
     /**
      * Insert an attribute/value pair.
      *
-     * @param attribute - An attribute name
-     * @param value - A value associated with the attribute name
-     * @return - This LogChain instance
+     * @param attribute An attribute name.
+     * @param value A value associated with the attribute name.
+     * @return This LogChain instance.
      */
     public LogChain log(String attribute, Object value) {
         put(attribute, value);
@@ -22,7 +22,7 @@ public class LogChain extends HashMap<Object, Object> {
     /**
      * Invoke Logger's insert() method after using Flattener to flatten this LogChain Map.
      *
-     * @param logger - A Logger instance
+     * @param logger A Logger instance.
      */
     public void insert(Logger logger) {
         logger.insert(Flattener.flatten(this));

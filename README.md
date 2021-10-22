@@ -63,16 +63,4 @@ gradle clean build test publishToMavenLocal
 ```
 ...to install it in your local Maven repository. 
 
-To get it via Maven, use:
-```
-<dependency>
-  <groupId>org.reldb</groupId>
-  <artifactId>dbLogger</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
-</dependency>
-```
-To get it via Gradle, use:
-```
-compile 'org.reldb:dbLogger:0.0.3-SNAPSHOT'
-```
-The version can be found in _build.gradle_.
+To get it via Maven, see https://search.maven.org/artifact/org.reldb/dbLogger

@@ -89,8 +89,8 @@ public class Logger implements Closeable {
 	/** 
 	 * Obtain the appropriate SQL type name given the class of a data type we wish to log.
 	 * 
-	 * @param clazz - Class of data type we wish to log
-	 * @return - SQL type name to use to record data
+	 * @param clazz Class of data type we wish to log.
+	 * @return SQL type name to use to record data.
 	 */
 	protected String getSqlTypeFor(Class<?> clazz) {
 		return switch (clazz.getCanonicalName()) {
@@ -104,19 +104,19 @@ public class Logger implements Closeable {
 	 * Given a column name provided in the data we wish to log, translate any characters
 	 * that are not acceptable SQL.
 	 * 
-	 * @param rawColumnName - Column name provided in log data
-	 * @return - SQL-legal column name
+	 * @param rawColumnName Column name provided in log data.
+	 * @return SQL-legal column name.
 	 */
 	protected String cleanColumnName(String rawColumnName) {
 		return Database.cleanSqlIdentifier(rawColumnName);
 	}
 	
 	/**
-	 * Given a Map of column_name -> data we wish to log, insert it into a table in the database, creating or expanding the table as needed.
+	 * Given a Map of column_name to data we wish to log, insert it into a table in the database, creating or expanding the table as needed.
 	 * 
 	 * NOTE: Changing the type of a given column is not supported, and attempts may or may not break.
 	 * 
-	 * @param fullRecord - Map<String, Object> representing a record of data we wish to log
+	 * @param fullRecord Map representing a record of data we wish to log
 	 */
 	public void insert(Map<String, Object> fullRecord) {
 		try {
