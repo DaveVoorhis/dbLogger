@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'org.reldb'
-version = '1.0.0'
+version = '1.0.1-SNAPSHOT'
 description = 'A simple library for logging to SQL databases.'
 
 dependencies {
