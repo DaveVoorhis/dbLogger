@@ -58,11 +58,12 @@ Then open _mylogs.sqlite_ with your favourite SQLite database browser to examine
 
 See _SQLiteDatabaseTest.java_ under _/src/test/java/org/reldb/dbLogger/tests_ for more examples.
 
+## Extend dbLogger
+
 This is the source project for the dbLogger library.
 
-To build and test the dbLogger library, and publish to your local Maven repository:
+To build and test the dbLogger library and publish it to your local Maven repository:
 
 ```
 gradle clean build test publishToMavenLocal
 ```
-
