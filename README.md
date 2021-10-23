@@ -15,7 +15,7 @@ like DB Browser. See https://sqlitebrowser.org.
 
 ## Get dbLogger
 
-To get dbLogger via Maven Central, see https://search.maven.org/artifact/org.reldb/dbLogger
+Get dbLogger from Maven Central: https://search.maven.org/artifact/org.reldb/dbLogger
 
 ## Use dbLogger
 
@@ -58,12 +58,11 @@ Then open _mylogs.sqlite_ with your favourite SQLite database browser to examine
 
 See _SQLiteDatabaseTest.java_ under _/src/test/java/org/reldb/dbLogger/tests_ for more examples.
 
-## Build, Install and Load dbLogger
+This is the source project for the dbLogger library.
 
-To build the project and install it, first install Gradle, then go to the project directory
-and run...
+To build and test the dbLogger library, and publish to your local Maven repository:
+
 ```
 gradle clean build test publishToMavenLocal
 ```
-...to install it in your local Maven repository. 
 
