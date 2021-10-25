@@ -58,6 +58,10 @@ Then open _mylogs.sqlite_ with your favourite SQLite database browser to examine
 
 See _SQLiteDatabaseTest.java_ under _/src/test/java/org/reldb/dbLogger/tests_ for more examples.
 
+## Know dbLogger ##
+
+Javadocs: https://www.javadoc.io/doc/org.reldb/dbLogger
+
 ## Extend dbLogger
 
 This is the source project for the dbLogger library.
