@@ -13,6 +13,9 @@ By default, dbLogger is designed to log to SQLite databases.
 For log viewing and analysis, you may want to use something
 like DB Browser. See https://sqlitebrowser.org.
 
+dbLogger 1.0.0 is for Java 14 and above.
+dbLogger 1.0.1 is for Java 8 and above.
+
 ## Get dbLogger
 
 Get dbLogger from Maven Central: https://search.maven.org/artifact/org.reldb/dbLogger
