@@ -93,11 +93,18 @@ public class Logger implements Closeable {
 	 * @return SQL type name to use to record data.
 	 */
 	protected String getSqlTypeFor(Class<?> clazz) {
-		return switch (clazz.getCanonicalName()) {
-			case "java.lang.Byte", "java.lang.Integer", "java.lang.Long", "java.lang.Short" -> "INTEGER";
-			case "java.lang.Double", "java.lang.Float" -> "NUMERIC";
-			default -> "TEXT";
-		};
+		switch (clazz.getCanonicalName()) {
+			case "java.lang.Byte":
+			case "java.lang.Integer":
+			case "java.lang.Long":
+			case "java.lang.Short":
+				return "INTEGER";
+			case "java.lang.Double":
+			case "java.lang.Float":
+				return "NUMERIC";
+			default:
+				return "TEXT";
+		}
 	}
 	
 	/**

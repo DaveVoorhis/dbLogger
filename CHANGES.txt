@@ -1,4 +1,5 @@
 1.0.1
+ - Build for Java 8 (previously Java 14.)
 
 1.0.0 (October 22, 2021)
  - Initial release.
